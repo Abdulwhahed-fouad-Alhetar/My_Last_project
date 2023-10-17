@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="inner-boxtitle"> للحجز<span class="inner-span"> املاء</span> المتطلبات</h3>
+        <form class="intro" id="contactForm" method="POST" class="intro-inner" autocomplete="off">
+            <label id="inner-list" for="user-title">اسم الطلب</label>
+            <input type="text" id="inner-item" id="user-title" required>
+            <label class="inner-list" for="user-author">نوع الطلب</label>
+            <input type="text" id="inner-item">
+            <label for="user-year" class="inner-list">سعر الطلب</label>
+            <input type="text" class="inner-item" id="user-year" required>
+            <button class="inner-button" type="submit">
+                اضافة إلى قائمة المتطلبات
+            </button>
+            <div class="box">
+                <div class="box-desc">اسم الطلب</div>
+                <div class="box-desc">نوع الطلب</div>
+                <div class="box-desc">سعر الطلب</div>
+            </div>
+        </form>
+    </div>
+    <form id="contactForm">
+        <label for="dishName">Dish name:</label>
+        <input type="text" id="dishName" name="dishName" required><br>
+        <br>
+        <label for="dishPrice">Dish Price:</label>
+        <input type="number" id="dishPrice" name="dishPrice" required><br>
+
+        <input type="submit" value="Submit">
+        <br>
+    </form>
+    <br>
+    <br>
+    <table id="dishTable">
+        <tr>
+            <th>Dish Name</th>
+            <th>Dish Price</th>
+        </tr>
+    </table>
+
+
+</body>
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // prevents form submission
+
+        var name = document.getElementById("dishName").value;
+        var price = document.getElementById("dishPrice").value;
+
+        var table = document.getElementById("dishTable");
+        var row = table.insertRow(-1); // inserts a new row at the last position
+
+        var nameCell = row.insertCell(0);
+        var priceCell = row.insertCell(1);
+
+        nameCell.innerHTML = name;
+        priceCell.innerHTML = "" + price;
+
+        document.getElementById("contactForm").reset();
+    });
+</script>
+
+</html>
